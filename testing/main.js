@@ -22,6 +22,7 @@ function asyncReadLine() {
         }
         else{
             exit();
+            //test
         }       
     });
 }
