@@ -2,7 +2,8 @@ const {Guitar} = require("./guitar");
 const readline = require('readline');
 const {Chord} = require("./chord");
 const {chords} = require("./chords");
-const {displayChord} = require("./displayChord")
+const {displayChord} = require("./displayChord");
+const { exit } = require("process");
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -11,6 +12,16 @@ const rl = readline.createInterface({
 
 let guitar = new Guitar();
 
-let chordName = rl.question("Enter a chord to display: ", (chord) => {
-    displayChord(chord, guitar, "open")
-});
+asyncReadLine();
+
+function asyncReadLine() {
+    let chordName = rl.question("Enter a chord to display: ", (chord) => {
+        if(chord != ""){
+            displayChord(chord, guitar, "open");
+            asyncReadLine();
+        }
+        else{
+            exit();
+        }       
+    });
+}

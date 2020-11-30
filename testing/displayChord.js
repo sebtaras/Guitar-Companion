@@ -26,6 +26,7 @@ function determineChordType(chordFingerings, guitar, chordType) {
 }
 
 function renderChord(chord, guitar){
+    guitar.clearChord();
     guitar.updateWithChord(chord);
     guitar.outputGuitar();
 }
