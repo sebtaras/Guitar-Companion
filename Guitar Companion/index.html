@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts/script.js"></script>
+    <title>Guitar</title>
+  </head>
+  <body>
+    <header>
+      <div class="inner-header">
+        <div class="logo">GUITAR <span>COMPANION</span></div>
+        <div class="menu-options">
+          <ul>
+            <li><a href="">Tuning</a></li>
+            <li><a href="">Scale</a></li>
+            <li><a href="">Progression</a></li>
+            <!-- TODO: toggle display note/finger position/fret -->
+          </ul>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="https://github.com/sebtaras">Github</a></li>
+            <li><a href="">My other projects</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="mobile-selects">
+        <select class="selection selection-tuning">
+          <option value="E">E standard tuning</option>
+          <option value="Eb">Eb standard (half-step) tuning</option>
+        </select>
+        <select class="selection selection-scale">
+          <option value="C">C major scale</option>
+          <option value="Gm">G minor scale</option>
+        </select>
+        <select class="selection selection-progression">
+          <option value="0">Show all chords</option>
+          <option value="1-5-6-4">I–V–vi–IV | 1-5-6-4 progression</option>
+          <option value="2-5-1">ii-V-I | 2-5-1 progression</option>
+        </select>
+      </section>
+      <section class="fretboard"></section>
+      <section class="notes"></section>
+      <section class="chords"></section>
+    </main>
+  </body>
+</html>

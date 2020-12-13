@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+
+* {
+  font-family: Cabin, sans-serif;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+grid-container {
+  display: grid;
+}
+
+/*HEADER STYLES*/
+
+header {
+  display: flex;
+  background: #101010;
+  height: 5rem;
+  justify-content: center;
+}
+
+.inner-header {
+  display: flex;
+  width: 95%;
+  height: inherit;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inner-header ul {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.inner-header li {
+  margin: 0rem 1rem;
+  font-size: 1.2rem;
+}
+
+.menu-options li {
+  padding: 0 3rem;
+}
+
+.inner-header a:hover,
+.logo:hover {
+  color: rgb(184, 184, 184);
+  cursor: pointer;
+}
+
+.inner-header li:last-child {
+  margin-right: 0rem;
+}
+
+.inner-header a {
+  color: white;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.logo span {
+  font-weight: 600;
+}
+
+.mobile-selects {
+  display: none;
+}
+
+/*MAIN FRETBOARD STYLES*/
+
+.fretboard {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 0.1rem;
+}
+
+.fret {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background: rgb(81, 197, 143);
+  justify-content: center;
+  align-items: center;
+}
+
+.fret-string {
+  background: rgb(75, 134, 107);
+  color: white;
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 1030px) {
+  .inner-header nav {
+    display: none;
+  }
+
+  .fret {
+    height: 50px;
+  }
+
+  .menu-options li {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .menu-options {
+    display: none;
+  }
+
+  .fret {
+    height: 35px;
+  }
+
+  .inner-header {
+    justify-content: center;
+  }
+
+  .mobile-selects {
+    display: flex;
+    flex-direction: column;
+  }
+}
