@@ -12,6 +12,11 @@ function addFret(value, parent, first = false) {
   parent.appendChild(fret);
 }
 
+function enableSelectProgression() {
+  const el = document.querySelector(".selection-progression");
+  el.disabled = false;
+}
+
 function clearTuning() {
   const fretboard = document.querySelector(".fretboard");
   fretboard.innerHTML = "";
@@ -52,12 +57,13 @@ function displayTuning(tuning, boolScale, mode = "note") {
     });
   }
   if (scale != "Select a scale" && boolScale) {
-    console.log(scale);
     displayScaleListener(scale);
   }
 }
 
 function displayScaleListener(scale) {
+  enableSelectProgression();
+  console.log(scale);
   switch (scale) {
     case "C":
       displayScale(CmajorScale);
@@ -77,12 +83,14 @@ function displayScale(scale) {
   const tuning = document.querySelector(".selection-tuning").value;
   displayTuningListener(tuning, false);
   const frets = document.querySelectorAll(".fret");
+
   frets.forEach(fret => {
     const value = fret.innerHTML;
     let inScale = false;
     scale.notes.forEach(note => {
       if (note == value) inScale = true;
     });
+
     if (inScale) fret.classList.add("fret-scale");
     if (value == scale.root) fret.classList.add("fret-root-note");
   });

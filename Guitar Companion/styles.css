@@ -87,8 +87,8 @@ header {
 
 .fretboard {
   display: grid;
-  grid-template-columns: repeat(23, 6%);
-  gap: 0.1rem;
+  grid-template-columns: repeat(23, 1fr);
+  gap: 0.15rem;
   overflow-y: hidden;
   overflow-x: scroll;
 }
@@ -96,7 +96,7 @@ header {
 .fret {
   display: flex;
   width: 100%;
-  height: 100px;
+  height: 70px;
   background: rgb(81, 197, 143);
   justify-content: center;
   align-items: center;
@@ -120,8 +120,17 @@ header {
 }
 
 @media screen and (max-width: 1190px) {
+  header {
+    height: 4.5rem;
+  }
+
   .inner-header nav {
     display: none;
+  }
+
+  .fretboard {
+    grid-template-columns: repeat(23, 6%);
+    gap: 0.12rem;
   }
 
   .fret {
@@ -139,12 +148,21 @@ header {
 }
 
 @media screen and (max-width: 625px) {
+  header {
+    height: 4rem;
+  }
+
   .menu-options {
     display: none;
   }
 
+  .fretboard {
+    grid-template-columns: repeat(23, 7%);
+    gap: 1px;
+  }
+
   .fret {
-    height: 35px;
+    height: 30px;
     font-size: 0.7rem;
   }
 
@@ -159,5 +177,23 @@ header {
   .mobile-selects {
     display: flex;
     flex-direction: column;
+  }
+
+  .mobile-selects select {
+    padding: 0.4rem;
+    color: white;
+    background: #202020;
+    border: none;
+    border-bottom: 1px solid #101010;
+    cursor: pointer;
+  }
+
+  .mobile-selects select:focus {
+    outline: none;
+    background: #414141;
+  }
+
+  .mobile-selects select:hover {
+    background: #303030;
   }
 }
