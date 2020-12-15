@@ -114,6 +114,11 @@ header {
   color: white;
 }
 
+.fret-root-note {
+  background: #30869b;
+  color: white;
+}
+
 @media screen and (max-width: 1190px) {
   .inner-header nav {
     display: none;

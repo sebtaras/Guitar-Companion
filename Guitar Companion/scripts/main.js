@@ -27,7 +27,7 @@ function displayTuning(tuning, mode = "note") {
   displayFretNumbers();
   for (let key in tuning.strings) {
     const nodes = tuning.strings[key];
-    nodes.forEach(node => {
+    nodes.forEach((node) => {
       if (mode == "note" || node.FretNumber == 0)
         addFret(node.Note, fretboard, node.FretNumber == 0);
       else addFret(node.FretNumber, fretboard);
@@ -67,13 +67,14 @@ function displayScale(tuning, scale) {
   clearTuning();
   displayTuningListener(tuning);
   const frets = document.querySelectorAll(".fret");
-  frets.forEach(fret => {
+  frets.forEach((fret) => {
     const value = fret.innerHTML;
     let inScale = false;
-    scale.notes.forEach(note => {
+    scale.notes.forEach((note) => {
       if (note == value) inScale = true;
     });
     if (inScale) fret.classList.add("fret-scale");
+    if (value == scale.root) fret.classList.add("fret-root-note");
   });
 }
 
