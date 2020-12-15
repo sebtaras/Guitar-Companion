@@ -1,3 +1,7 @@
+function refresh() {
+  location.reload();
+}
+
 function addFret(value, parent, first = false) {
   let fret = document.createElement("div");
   fret.innerHTML = `${value}`;
