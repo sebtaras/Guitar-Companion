@@ -1,4 +1,5 @@
 const EStandard = {
+  name: "EStandard",
   tuning: ["E", "A", "D", "G", "B", "E"],
   strings: {
     firstString: [

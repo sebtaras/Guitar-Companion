@@ -1,4 +1,5 @@
 const EbStandard = {
+  name: "EbStandard",
   tuning: ["D#", "G#", "C#", "F#", "A#", "D#"],
   strings: {
     firstString: [

@@ -12,33 +12,6 @@ function addFret(value, parent, first = false) {
   parent.appendChild(fret);
 }
 
-function displayTuningListener(value, displayMode = "note") {
-  switch (value) {
-    case "E":
-      displayTuning(EStandard, displayMode);
-      break;
-    case "Eb":
-      displayTuning(EbStandard, displayMode);
-      break;
-    default:
-      break;
-  }
-}
-
-function displayTuning(tuning, mode = "note") {
-  const fretboard = document.querySelector(".fretboard");
-  clearTuning();
-  displayFretNumbers();
-  for (let key in tuning.strings) {
-    const nodes = tuning.strings[key];
-    nodes.forEach((node) => {
-      if (mode == "note" || node.FretNumber == 0)
-        addFret(node.Note, fretboard, node.FretNumber == 0);
-      else addFret(node.FretNumber, fretboard);
-    });
-  }
-}
-
 function clearTuning() {
   const fretboard = document.querySelector(".fretboard");
   fretboard.innerHTML = "";
@@ -51,30 +24,63 @@ function displayFretNumbers() {
   }
 }
 
-function displayScaleListener(scale) {
-  const tuning = document.querySelector(".selection-tuning").value;
-  switch (scale) {
-    case "C":
-      displayScale(tuning, CmajorScale);
+function displayTuningListener(value, boolScale = true, displayMode = "note") {
+  switch (value) {
+    case "E":
+      displayTuning(EStandard, boolScale, displayMode);
       break;
-    case "Gm":
-      displayScale(tuning, GminorScale);
+    case "Eb":
+      displayTuning(EbStandard, boolScale, displayMode);
       break;
-    case "Amp":
-      displayScale(tuning, AminorPentatonicScale);
     default:
       break;
   }
 }
 
-function displayScale(tuning, scale) {
+function displayTuning(tuning, boolScale, mode = "note") {
+  console.log("Displaying", tuning.name);
+  const fretboard = document.querySelector(".fretboard");
+  const scale = document.querySelector(".selection-scale").value;
   clearTuning();
-  displayTuningListener(tuning);
+  displayFretNumbers();
+  for (let key in tuning.strings) {
+    const nodes = tuning.strings[key];
+    nodes.forEach(node => {
+      if (mode == "note" || node.FretNumber == 0)
+        addFret(node.Note, fretboard, node.FretNumber == 0);
+      else addFret(node.FretNumber, fretboard);
+    });
+  }
+  if (scale != "Select a scale" && boolScale) {
+    console.log(scale);
+    displayScaleListener(scale);
+  }
+}
+
+function displayScaleListener(scale) {
+  switch (scale) {
+    case "C":
+      displayScale(CmajorScale);
+      break;
+    case "Gm":
+      displayScale(GminorScale);
+      break;
+    case "Amp":
+      displayScale(AminorPentatonicScale);
+    default:
+      break;
+  }
+}
+
+function displayScale(scale) {
+  clearTuning();
+  const tuning = document.querySelector(".selection-tuning").value;
+  displayTuningListener(tuning, false);
   const frets = document.querySelectorAll(".fret");
-  frets.forEach((fret) => {
+  frets.forEach(fret => {
     const value = fret.innerHTML;
     let inScale = false;
-    scale.notes.forEach((note) => {
+    scale.notes.forEach(note => {
       if (note == value) inScale = true;
     });
     if (inScale) fret.classList.add("fret-scale");
@@ -83,7 +89,7 @@ function displayScale(tuning, scale) {
 }
 
 function defaultDisplay() {
-  displayTuning(EStandard, "note");
+  displayTuning(EStandard, false, "note");
 }
 
 defaultDisplay();
