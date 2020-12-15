@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="scripts/script.js"></script>
+    <script defer src="scripts/guitarTunings/ebStandard.js"></script>
+    <script defer src="scripts/guitarTunings/eStandard.js"></script>
+    <script defer src="scripts/scales.js"></script>
+    <script defer src="scripts/main.js"></script>
     <title>Guitar</title>
   </head>
   <body>
@@ -30,15 +33,28 @@
     </header>
     <main>
       <section class="mobile-selects">
-        <select class="selection selection-tuning">
+        <select
+          class="selection selection-tuning"
+          onchange="displayTuningListener(this.value)"
+        >
           <option value="E">E standard tuning</option>
           <option value="Eb">Eb standard (half-step) tuning</option>
         </select>
-        <select class="selection selection-scale">
+        <select
+          class="selection selection-scale"
+          onchange="displayScaleListener(this.value)"
+        >
           <option value="C">C major scale</option>
           <option value="Gm">G minor scale</option>
+          <option value="Amp">A minor pentatonic scale</option>
         </select>
-        <select class="selection selection-progression">
+        <select
+          class="selection selection-progression"
+          <!--
+          onchange="displayProgressionListener(this.value)"
+          --
+        >
+          >
           <option value="0">Show all chords</option>
           <option value="1-5-6-4">I–V–vi–IV | 1-5-6-4 progression</option>
           <option value="2-5-1">ii-V-I | 2-5-1 progression</option>
