@@ -14,7 +14,7 @@ const CmajorChord = {
     thirdString: 5,
     fourthString: 5,
     fifthString: 3,
-    sixthString: "X",
+    sixthString: -1,
   },
   octave: {
     firstString: 8,
@@ -31,6 +31,34 @@ const CmajorChord = {
     fourthString: 5,
     fifthString: 3,
     sixthString: -1,
+  },
+};
+
+const FmajorChord = {
+  none: {},
+  barre: {
+    firstString: 1,
+    secondString: 1,
+    thirdString: 2,
+    fourthString: 3,
+    fifthString: 3,
+    sixthString: 1,
+  },
+  octave: {
+    firstString: 8,
+    secondString: 10,
+    thirdString: 10,
+    fourthString: 10,
+    fifthString: 8,
+    sixthString: -1,
+  },
+  power: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: -1,
+    fourthString: 3,
+    fifthString: 3,
+    sixthString: 1,
   },
 };
 

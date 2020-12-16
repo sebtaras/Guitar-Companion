@@ -68,49 +68,48 @@ function toggleHighlightChordType(chord) {
 
   const chords = document.querySelectorAll(".chord");
   chords.forEach((c) => {
-    if (chord.innerHTML != c.innerHTML) c.dataset.toggle = "none";
+    if (chord.innerHTML != c.innerHTML) {
+      c.classList.remove("chord-selected");
+      c.dataset.toggle = "none";
+    }
   });
 
   const chordInfo = getChord(chord.innerHTML);
   const chordTypes = Object.keys(chordInfo);
-  console.log(chordTypes);
   const tuning = getTuning(document.querySelector(".selection-tuning").value);
   const offset = tuning.offset;
-
-  const currentIndex = chordTypes.indexOf(chord.dataset.toggle);
-  let newIndex = (currentIndex + 1) % chordTypes.length;
-  chord.dataset.toggle = chordTypes[newIndex];
-  console.log(chord.dataset.toggle);
-  const fingering = chordInfo[chordTypes[newIndex]];
-  const fretsInFingering = Object.values(fingering);
-  console.log(fretsInFingering);
-  console.log(offset);
-  if (
+  let fretsInFingering;
+  let fingering;
+  do {
+    const currentIndex = chordTypes.indexOf(chord.dataset.toggle);
+    let newIndex = (currentIndex + 1) % chordTypes.length;
+    chord.dataset.toggle = chordTypes[newIndex];
+    fingering = chordInfo[chordTypes[newIndex]];
+    fretsInFingering = Object.values(fingering);
+  } while (
     fretsInFingering.indexOf(0) > -1 &&
     chord.dataset.toggle == "open" &&
     offset.indexOf(1) > -1
-  ) {
-    console.log("skipping");
-  } else {
-    let i = -1;
-    const num_frets = 23;
-    for (key in fingering) {
-      i++;
-      if (fingering[key] != -1) {
-        if (fingering[key] != "X") {
-          temp = fingering[key] + offset[i];
-          //console.log(fingering[key], offset[i]);
-          //console.log("temp key", temp, key);
-          index = i * num_frets + num_frets + temp;
-          if (index % 23) {
-            fretboard[index].classList.add("fret-chord");
-          } else {
-            fretboard[index].classList.add("fret-chord-open");
-          }
-        }
+  );
+  let i = -1;
+  const num_frets = 23;
+  for (key in fingering) {
+    i++;
+    if (fingering[key] != -1) {
+      temp = fingering[key] + offset[i];
+      index = i * num_frets + num_frets + temp;
+      if (index % 23) {
+        fretboard[index].classList.add("fret-chord");
+      } else {
+        fretboard[index].classList.add("fret-chord-open");
       }
     }
-    //console.log(fingering);
+  }
+  console.log(chord.dataset.toggle);
+  if (chord.dataset.toggle != "none") {
+    chord.classList.add("chord-selected");
+  } else {
+    chord.classList.remove("chord-selected");
   }
 }
 
@@ -259,6 +258,8 @@ function getChord(value) {
   switch (value) {
     case "C":
       return CmajorChord;
+    case "F":
+      return FmajorChord;
     case "Gm":
       return GminorChord;
   }

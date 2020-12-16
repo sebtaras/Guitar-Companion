@@ -208,6 +208,10 @@ header {
   outline: 1px solid #ffffff;
 }
 
+.chord-selected {
+  background: var(--fret-chord);
+}
+
 /*-------------------------------- TABLET STYLES --------------------------------*/
 
 @media screen and (max-width: 1200px) {
