@@ -8,6 +8,9 @@ function addFret(value, parent, first = false) {
   fret.classList.add("fret");
   if (first) {
     fret.classList.add("fret-string");
+    if ([0, 3, 5, 7, 9, 12, 15, 17, 19, 21].indexOf(value) > -1) {
+      fret.classList.add("fret-mark");
+    }
   }
   parent.appendChild(fret);
 }
@@ -50,7 +53,7 @@ function displayTuning(tuning, boolScale, mode = "note") {
   displayFretNumbers();
   for (let key in tuning.strings) {
     const nodes = tuning.strings[key];
-    nodes.forEach(node => {
+    nodes.forEach((node) => {
       if (mode == "note" || node.FretNumber == 0)
         addFret(node.Note, fretboard, node.FretNumber == 0);
       else addFret(node.FretNumber, fretboard);
@@ -84,10 +87,10 @@ function displayScale(scale) {
   displayTuningListener(tuning, false);
   const frets = document.querySelectorAll(".fret");
 
-  frets.forEach(fret => {
+  frets.forEach((fret) => {
     const value = fret.innerHTML;
     let inScale = false;
-    scale.notes.forEach(note => {
+    scale.notes.forEach((note) => {
       if (note == value) inScale = true;
     });
 

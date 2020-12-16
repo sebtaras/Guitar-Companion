@@ -6,6 +6,8 @@
   --fret-secondary: #4b866b;
   --fret-scale: #212e4b;
   --fret-root: #30869b;
+  --fret-mark: #b0eed9;
+  --fret-chord: #922420;
   /* --fret-primary: #fff568;
   --fret-secondary: #fffb2a;
   --fret-scale: #000000;
@@ -109,6 +111,11 @@ header {
   background: var(--fret-secondary);
   color: white;
   font-size: 2.2rem;
+}
+
+.fret-mark {
+  background: var(--fret-mark);
+  color: black;
 }
 
 .fret-scale {
