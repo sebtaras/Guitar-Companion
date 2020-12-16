@@ -210,6 +210,7 @@ header {
 
 .chord-selected {
   background: var(--fret-chord);
+  color: white;
 }
 
 /*-------------------------------- TABLET STYLES --------------------------------*/
