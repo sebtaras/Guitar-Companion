@@ -129,6 +129,16 @@ header {
   color: black;
 }
 
+.fret-chord {
+  background: var(--fret-chord);
+  color: white;
+}
+
+.fret-chord-open {
+  background: var(--header-color);
+  color: white;
+}
+
 .mobile-selects {
   display: flex;
   flex-direction: column;
@@ -156,9 +166,10 @@ header {
 
 .note-selector {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
   gap: 0.1rem;
   border-bottom: 0.2rem #101010;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 
 .note {
@@ -175,6 +186,28 @@ header {
 .note-selected {
   background: var(--selected);
 }
+
+/*------------- CHORD SELECTOR STYLES ------------- */
+
+.chord-selector {
+  display: grid;
+  gap: 0.1rem;
+  border-bottom: 0.2rem #101010;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.chord {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background: var(--fret-secondary);
+  font-size: 1.5rem;
+  outline: 1px solid #ffffff;
+}
+
 /*-------------------------------- TABLET STYLES --------------------------------*/
 
 @media screen and (max-width: 1200px) {
@@ -202,6 +235,14 @@ header {
 
   .menu-options li {
     padding: 0 1rem;
+  }
+
+  .note {
+    font-size: 1.3rem;
+  }
+
+  .chord {
+    font-size: 1.2rem;
   }
 }
 
@@ -240,5 +281,9 @@ header {
 
   .note-selector {
     outline: 0px;
+  }
+
+  .chord {
+    font-size: 1rem;
   }
 }

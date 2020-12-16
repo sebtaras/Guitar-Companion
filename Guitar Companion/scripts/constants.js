@@ -1,5 +1,6 @@
 const STRING_NUM = 6;
 const FRET_NUM = 12; //24?
+const MUTE = -1;
 const ALL_NOTES = [
   "A",
   "A#",

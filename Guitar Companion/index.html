@@ -7,6 +7,7 @@
     <script defer src="scripts/guitarTunings/ebStandard.js"></script>
     <script defer src="scripts/guitarTunings/eStandard.js"></script>
     <script defer src="scripts/scales.js"></script>
+    <script defer src="scripts/chords.js"></script>
     <script defer src="scripts/main.js"></script>
     <!-- <script defer src="scripts/guitarScales/majorScales.js"></script>
     <script defer src="scripts/guitarScales/minorScales.js"></script>
@@ -51,14 +52,14 @@
         >
           <option selected="selected" disabled>Select a scale</option>
           <option value="C">C major scale</option>
-          <option value="Am">A minor scale</option>
+          <!-- <option value="Am">A minor scale</option> -->
           <option value="Gm">G minor scale</option>
           <option value="Amp">A minor pentatonic scale</option>
         </select>
         <select
           class="selection selection-progression"
           <!--
-          onchange="displayProgressionListener(this.value)"
+          onchange="displayChordSelectorListener(this.value)"
           --
           disabled="true"
         >
@@ -71,7 +72,7 @@
       </section>
       <section class="fretboard"></section>
       <section class="note-selector"></section>
-      <section class="chords"></section>
+      <section class="chord-selector"></section>
     </main>
   </body>
 </html>

@@ -20,8 +20,17 @@ function addNote(value, parent) {
   note.innerHTML = `${value}`;
   note.classList.add("note");
   note.dataset.toggle = "off";
-  note.addEventListener("click", () => toggleHighlight(note));
+  note.addEventListener("click", () => toggleHighlightNote(note));
   parent.appendChild(note);
+}
+
+function addChord(value, parent) {
+  let chord = document.createElement("div");
+  chord.innerHTML = `${value}`;
+  chord.classList.add("chord");
+  chord.dataset.toggle = "none";
+  chord.addEventListener("click", () => toggleHighlightChordType(chord));
+  parent.appendChild(chord);
 }
 
 function enableSelectProgression() {
@@ -33,7 +42,7 @@ function clearDisplay(el) {
   el.innerHTML = "";
 }
 
-function toggleHighlight(note) {
+function toggleHighlightNote(note) {
   const frets = document.querySelectorAll(".fret");
   if (note.dataset.toggle == "off") {
     note.classList.add("note-selected");
@@ -48,6 +57,60 @@ function toggleHighlight(note) {
         fret.classList.remove("fret-selected");
     });
     note.dataset.toggle = "off";
+  }
+}
+
+function toggleHighlightChordType(chord) {
+  const fretboard = document.querySelectorAll(".fret");
+  fretboard.forEach((fret) => {
+    fret.classList.remove("fret-chord", "fret-chord-open");
+  });
+
+  const chords = document.querySelectorAll(".chord");
+  chords.forEach((c) => {
+    if (chord.innerHTML != c.innerHTML) c.dataset.toggle = "none";
+  });
+
+  const chordInfo = getChord(chord.innerHTML);
+  const chordTypes = Object.keys(chordInfo);
+  console.log(chordTypes);
+  const tuning = getTuning(document.querySelector(".selection-tuning").value);
+  const offset = tuning.offset;
+
+  const currentIndex = chordTypes.indexOf(chord.dataset.toggle);
+  let newIndex = (currentIndex + 1) % chordTypes.length;
+  chord.dataset.toggle = chordTypes[newIndex];
+  console.log(chord.dataset.toggle);
+  const fingering = chordInfo[chordTypes[newIndex]];
+  const fretsInFingering = Object.values(fingering);
+  console.log(fretsInFingering);
+  console.log(offset);
+  if (
+    fretsInFingering.indexOf(0) > -1 &&
+    chord.dataset.toggle == "open" &&
+    offset.indexOf(1) > -1
+  ) {
+    console.log("skipping");
+  } else {
+    let i = -1;
+    const num_frets = 23;
+    for (key in fingering) {
+      i++;
+      if (fingering[key] != -1) {
+        if (fingering[key] != "X") {
+          temp = fingering[key] + offset[i];
+          //console.log(fingering[key], offset[i]);
+          //console.log("temp key", temp, key);
+          index = i * num_frets + num_frets + temp;
+          if (index % 23) {
+            fretboard[index].classList.add("fret-chord");
+          } else {
+            fretboard[index].classList.add("fret-chord-open");
+          }
+        }
+      }
+    }
+    //console.log(fingering);
   }
 }
 
@@ -130,6 +193,75 @@ function displayScale(scale) {
   scale.notes.forEach((note) => {
     addNote(note, noteSelector);
   });
+
+  const progression = document.querySelector(".selection-progression");
+  if (progression.value != "Select chords") {
+    displayChordSelectorListener(progression.value);
+  }
+}
+
+function displayChordSelectorListener(progression) {
+  console.log(progression);
+  const scale = getScale(document.querySelector(".selection-scale").value);
+  chords = [];
+  switch (progression) {
+    case "0": {
+      chords = [...scale.chords];
+      break;
+    }
+    case "1-5-6-4": {
+      chords = [
+        scale.chords[0],
+        scale.chords[4],
+        scale.chords[5],
+        scale.chords[3],
+      ];
+      break;
+    }
+    case "2-5-1": {
+      chords = [scale.chords[1], scale.chords[4], scale.chords[0]];
+    }
+  }
+  console.log(chords);
+  displayChordSelector(chords);
+}
+
+function displayChordSelector(chords) {
+  const chordSelector = document.querySelector(".chord-selector");
+  clearDisplay(chordSelector);
+  chordSelector.style.gridTemplateColumns = `repeat(${chords.length}, 1fr)`;
+  chords.forEach((chord) => {
+    addChord(chord, chordSelector);
+  });
+}
+
+function getTuning(value) {
+  switch (value) {
+    case "E":
+      return EStandard;
+    case "Eb":
+      return EbStandard;
+  }
+}
+
+function getScale(value) {
+  switch (value) {
+    case "C":
+      return CmajorScale;
+    case "Gm":
+      return GminorScale;
+    case "Amp":
+      return AminorPentatonicScale;
+  }
+}
+
+function getChord(value) {
+  switch (value) {
+    case "C":
+      return CmajorChord;
+    case "Gm":
+      return GminorChord;
+  }
 }
 
 function defaultDisplay() {
