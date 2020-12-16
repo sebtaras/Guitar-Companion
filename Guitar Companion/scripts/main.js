@@ -34,9 +34,21 @@ function clearDisplay(el) {
 }
 
 function toggleHighlight(note) {
-  if (note.dataset.toggle == "off") note.dataset.toggle = "on";
-  else note.dataset.toggle = "off";
-  alert(note.dataset.toggle);
+  const frets = document.querySelectorAll(".fret");
+  if (note.dataset.toggle == "off") {
+    note.classList.add("note-selected");
+    note.dataset.toggle = "on";
+    frets.forEach((fret) => {
+      if (fret.innerHTML == note.innerHTML) fret.classList.add("fret-selected");
+    });
+  } else {
+    frets.forEach((fret) => {
+      note.classList.remove("note-selected");
+      if (fret.innerHTML == note.innerHTML)
+        fret.classList.remove("fret-selected");
+    });
+    note.dataset.toggle = "off";
+  }
 }
 
 function displayFretNumbers() {
@@ -67,7 +79,7 @@ function displayTuning(tuning, boolScale, mode = "note") {
   displayFretNumbers();
   for (let key in tuning.strings) {
     const nodes = tuning.strings[key];
-    nodes.forEach(node => {
+    nodes.forEach((node) => {
       if (mode == "note" || node.FretNumber == 0)
         addFret(node.Note, fretboard, node.FretNumber == 0);
       else addFret(node.FretNumber, fretboard);
@@ -101,10 +113,10 @@ function displayScale(scale) {
   displayTuningListener(tuning, false);
   const frets = document.querySelectorAll(".fret");
 
-  frets.forEach(fret => {
+  frets.forEach((fret) => {
     const value = fret.innerHTML;
     let inScale = false;
-    scale.notes.forEach(note => {
+    scale.notes.forEach((note) => {
       if (note == value) inScale = true;
     });
 
@@ -115,7 +127,7 @@ function displayScale(scale) {
   const noteSelector = document.querySelector(".note-selector");
   clearDisplay(noteSelector);
   noteSelector.style.gridTemplateColumns = `repeat(${scale.notes.length}, 1fr)`;
-  scale.notes.forEach(note => {
+  scale.notes.forEach((note) => {
     addNote(note, noteSelector);
   });
 }

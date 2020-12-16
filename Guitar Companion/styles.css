@@ -8,6 +8,7 @@
   --fret-root: #30869b;
   --fret-mark: #b0eed9;
   --fret-chord: #922420;
+  --selected: #fffb01;
   /* --fret-primary: #fff568;
   --fret-secondary: #fffb2a;
   --fret-scale: #000000;
@@ -123,6 +124,11 @@ header {
   color: white;
 }
 
+.fret-selected {
+  background: var(--selected);
+  color: black;
+}
+
 .mobile-selects {
   display: flex;
   flex-direction: column;
@@ -166,6 +172,9 @@ header {
   outline: 1px solid #ffffff;
 }
 
+.note-selected {
+  background: var(--selected);
+}
 /*-------------------------------- TABLET STYLES --------------------------------*/
 
 @media screen and (max-width: 1200px) {
