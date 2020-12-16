@@ -1,6 +1,7 @@
 const EStandard = {
   name: "EStandard",
   tuning: ["E", "A", "D", "G", "B", "E"],
+  offset: [0, 0, 0, 0, 0, 0],
   strings: {
     firstString: [
       { Note: "E", FretNumber: 0 },

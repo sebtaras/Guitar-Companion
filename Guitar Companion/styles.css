@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
 
+:root {
+  --header-color: #101010;
+  --fret-primary: #51c58f;
+  --fret-secondary: #4b866b;
+  --fret-scale: #212e4b;
+  --fret-root: #30869b;
+  /* --fret-primary: #fff568;
+  --fret-secondary: #fffb2a;
+  --fret-scale: #000000;
+  --fret-root: #ff9100; */
+}
+
 * {
   font-family: Cabin, sans-serif;
   padding: 0;
@@ -17,7 +29,7 @@ grid-container {
 
 header {
   display: flex;
-  background: #101010;
+  background: var(--header-color);
   height: 5rem;
   justify-content: center;
 }
@@ -75,16 +87,6 @@ header {
 
 /*MAIN FRETBOARD STYLES*/
 
-.scroll {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  background: rgb(3, 63, 43);
-  color: white;
-  padding: 0;
-}
-
 .fretboard {
   display: grid;
   grid-template-columns: repeat(23, 1fr);
@@ -97,29 +99,52 @@ header {
   display: flex;
   width: 100%;
   height: 70px;
-  background: rgb(81, 197, 143);
+  background: var(--fret-primary);
   justify-content: center;
   align-items: center;
   font-size: 1.8rem;
 }
 
 .fret-string {
-  background: rgb(75, 134, 107);
+  background: var(--fret-secondary);
   color: white;
   font-size: 2.2rem;
 }
 
 .fret-scale {
-  background: #212e4b;
+  background: var(--fret-scale);
   color: white;
 }
 
 .fret-root-note {
-  background: #30869b;
+  background: var(--fret-root);
   color: white;
 }
 
-@media screen and (max-width: 1190px) {
+.mobile-selects {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-selects select {
+  padding: 0.4rem;
+  color: white;
+  background: #202020;
+  border: none;
+  border-bottom: 1px solid var(--header-color);
+  cursor: pointer;
+}
+
+.mobile-selects select:focus {
+  outline: none;
+  background: #414141;
+}
+
+.mobile-selects select:hover {
+  background: #303030;
+}
+
+@media screen and (max-width: 1200px) {
   header {
     height: 4.5rem;
   }
@@ -174,26 +199,7 @@ header {
     justify-content: center;
   }
 
-  .mobile-selects {
-    display: flex;
-    flex-direction: column;
-  }
-
   .mobile-selects select {
     padding: 0.4rem;
-    color: white;
-    background: #202020;
-    border: none;
-    border-bottom: 1px solid #101010;
-    cursor: pointer;
-  }
-
-  .mobile-selects select:focus {
-    outline: none;
-    background: #414141;
-  }
-
-  .mobile-selects select:hover {
-    background: #303030;
   }
 }
