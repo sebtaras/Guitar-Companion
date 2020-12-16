@@ -22,12 +22,7 @@
   text-decoration: none;
   box-sizing: border-box;
 }
-
-grid-container {
-  display: grid;
-}
-
-/*HEADER STYLES*/
+/*------------- HEADER STYLES ------------- */
 
 header {
   display: flex;
@@ -87,7 +82,7 @@ header {
   display: none;
 }
 
-/*MAIN FRETBOARD STYLES*/
+/*------------- MAIN FRETBOARD STYLES ------------- */
 
 .fretboard {
   display: grid;
@@ -151,6 +146,28 @@ header {
   background: #303030;
 }
 
+/*------------- NOTE SELECTOR STYLES ------------- */
+
+.note-selector {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.1rem;
+  border-bottom: 0.2rem #101010;
+}
+
+.note {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background: var(--fret-secondary);
+  font-size: 1.5rem;
+  outline: 1px solid #ffffff;
+}
+
+/*-------------------------------- TABLET STYLES --------------------------------*/
+
 @media screen and (max-width: 1200px) {
   header {
     height: 4.5rem;
@@ -179,6 +196,8 @@ header {
   }
 }
 
+/*-------------------------------- MOBILE STYLES --------------------------------*/
+
 @media screen and (max-width: 625px) {
   header {
     height: 4rem;
@@ -190,7 +209,7 @@ header {
 
   .fretboard {
     grid-template-columns: repeat(23, 7%);
-    gap: 1px;
+    gap: 0.1rem;
   }
 
   .fret {
@@ -208,5 +227,9 @@ header {
 
   .mobile-selects select {
     padding: 0.4rem;
+  }
+
+  .note-selector {
+    outline: 0px;
   }
 }

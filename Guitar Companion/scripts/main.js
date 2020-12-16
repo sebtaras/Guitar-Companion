@@ -15,14 +15,28 @@ function addFret(value, parent, first = false) {
   parent.appendChild(fret);
 }
 
+function addNote(value, parent) {
+  let note = document.createElement("div");
+  note.innerHTML = `${value}`;
+  note.classList.add("note");
+  note.dataset.toggle = "off";
+  note.addEventListener("click", () => toggleHighlight(note));
+  parent.appendChild(note);
+}
+
 function enableSelectProgression() {
   const el = document.querySelector(".selection-progression");
   el.disabled = false;
 }
 
-function clearTuning() {
-  const fretboard = document.querySelector(".fretboard");
-  fretboard.innerHTML = "";
+function clearDisplay(el) {
+  el.innerHTML = "";
+}
+
+function toggleHighlight(note) {
+  if (note.dataset.toggle == "off") note.dataset.toggle = "on";
+  else note.dataset.toggle = "off";
+  alert(note.dataset.toggle);
 }
 
 function displayFretNumbers() {
@@ -49,11 +63,11 @@ function displayTuning(tuning, boolScale, mode = "note") {
   console.log("Displaying", tuning.name);
   const fretboard = document.querySelector(".fretboard");
   const scale = document.querySelector(".selection-scale").value;
-  clearTuning();
+  clearDisplay(fretboard);
   displayFretNumbers();
   for (let key in tuning.strings) {
     const nodes = tuning.strings[key];
-    nodes.forEach((node) => {
+    nodes.forEach(node => {
       if (mode == "note" || node.FretNumber == 0)
         addFret(node.Note, fretboard, node.FretNumber == 0);
       else addFret(node.FretNumber, fretboard);
@@ -82,20 +96,27 @@ function displayScaleListener(scale) {
 }
 
 function displayScale(scale) {
-  clearTuning();
   const tuning = document.querySelector(".selection-tuning").value;
+  clearDisplay(tuning);
   displayTuningListener(tuning, false);
   const frets = document.querySelectorAll(".fret");
 
-  frets.forEach((fret) => {
+  frets.forEach(fret => {
     const value = fret.innerHTML;
     let inScale = false;
-    scale.notes.forEach((note) => {
+    scale.notes.forEach(note => {
       if (note == value) inScale = true;
     });
 
     if (inScale) fret.classList.add("fret-scale");
     if (value == scale.root) fret.classList.add("fret-root-note");
+  });
+
+  const noteSelector = document.querySelector(".note-selector");
+  clearDisplay(noteSelector);
+  noteSelector.style.gridTemplateColumns = `repeat(${scale.notes.length}, 1fr)`;
+  scale.notes.forEach(note => {
+    addNote(note, noteSelector);
   });
 }
 
@@ -103,4 +124,5 @@ function defaultDisplay() {
   displayTuning(EStandard, false, "note");
 }
 
+console.log("test");
 defaultDisplay();

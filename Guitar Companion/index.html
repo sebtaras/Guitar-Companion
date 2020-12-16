@@ -8,6 +8,9 @@
     <script defer src="scripts/guitarTunings/eStandard.js"></script>
     <script defer src="scripts/scales.js"></script>
     <script defer src="scripts/main.js"></script>
+    <!-- <script defer src="scripts/guitarScales/majorScales.js"></script>
+    <script defer src="scripts/guitarScales/minorScales.js"></script>
+    <script defer src="scripts/guitarScales/pentatonicScales.js"></script> -->
     <title>Guitar</title>
   </head>
   <body>
@@ -21,7 +24,6 @@
             <li><a href="">Tuning</a></li>
             <li><a href="">Scale</a></li>
             <li><a href="">Progression</a></li>
-            <!-- TODO: toggle display note/finger position/fret -->
           </ul>
         </div>
         <nav>
@@ -49,6 +51,7 @@
         >
           <option selected="selected" disabled>Select a scale</option>
           <option value="C">C major scale</option>
+          <option value="Am">A minor scale</option>
           <option value="Gm">G minor scale</option>
           <option value="Amp">A minor pentatonic scale</option>
         </select>
@@ -67,7 +70,7 @@
         </select>
       </section>
       <section class="fretboard"></section>
-      <section class="notes"></section>
+      <section class="note-selector"></section>
       <section class="chords"></section>
     </main>
   </body>
