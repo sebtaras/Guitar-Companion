@@ -51,8 +51,10 @@
           class="selection selection-scale"
           onchange="displayScaleListener(this.value)"
         >
-          <option selected="selected" disabled>Select a scale</option>
-          <option value="0">No scale | Show all chords</option>
+          <option disabled>Select a scale</option>
+          <option value="0" selected="selected">
+            No scale | Show all chords
+          </option>
           <option value="C">C major scale</option>
           <option value="Am">A minor scale</option>
           <option value="Gm">G minor scale</option>
@@ -75,6 +77,7 @@
         </select>
       </section>
       <section class="fretboard"></section>
+      <div class="separator"></div>
       <section class="note-selector"></section>
       <section class="chord-selector"></section>
     </main>

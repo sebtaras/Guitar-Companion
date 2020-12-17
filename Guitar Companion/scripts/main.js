@@ -266,7 +266,7 @@ function displayChordSelector(chords) {
 function displayAllChordSelector(chords) {
   const chordSelector = document.querySelector(".chord-selector");
   clearDisplay(chordSelector);
-  chordSelector.style.gridTemplateColumns = `repeat(${chords.length / 2}, 1fr)`;
+  chordSelector.style.gridTemplateColumns = `repeat(${chords.length / 2}, 17%)`;
   chords.forEach(chord => {
     addChord(chord, chordSelector);
   });
@@ -349,6 +349,7 @@ function getChord(value) {
 
 function defaultDisplay() {
   displayTuning(EStandard, false, "note");
+  displayScaleListener("0");
 }
 
 defaultDisplay();

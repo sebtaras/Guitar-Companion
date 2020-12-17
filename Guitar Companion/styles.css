@@ -98,7 +98,6 @@ header {
 
 .fret {
   display: flex;
-  width: 100%;
   height: 70px;
   background: var(--fret-primary);
   justify-content: center;
@@ -142,6 +141,11 @@ header {
   color: white;
 }
 
+.separator {
+  height: 20px;
+  background: var(--header-color);
+}
+
 .mobile-selects {
   display: flex;
   flex-direction: column;
@@ -169,7 +173,7 @@ header {
 
 .note-selector {
   display: grid;
-  gap: 0.1rem;
+  gap: 0.15rem;
   border-bottom: 0.2rem #101010;
   overflow-y: hidden;
   overflow-x: scroll;
@@ -202,7 +206,7 @@ header {
 
 .chord-selector {
   display: grid;
-  gap: 0.1rem;
+  gap: 0.15rem;
   border-bottom: 0.2rem #101010;
   overflow-y: hidden;
   overflow-x: scroll;
@@ -215,7 +219,7 @@ header {
   align-items: center;
   height: 80px;
   background: var(--fret-secondary);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   outline: 1px solid #ffffff;
 }
 
@@ -266,13 +270,13 @@ header {
   }
 
   .chord {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
 /*-------------------------------- MOBILE STYLES --------------------------------*/
 
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 670px) {
   header {
     height: 4rem;
   }
