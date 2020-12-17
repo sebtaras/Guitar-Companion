@@ -9,8 +9,30 @@ function getTuning(value) {
 
 function getScale(value) {
   switch (value) {
+    case "A":
+      return AmajorScale;
+    case "A#":
+      return AsharpMajorScale;
+    case "B":
+      return BmajorScale;
     case "C":
       return CmajorScale;
+    case "C#":
+      return CsharpMajorScale;
+    case "D":
+      return DmajorScale;
+    case "D#":
+      return DsharpMajorScale;
+    case "E":
+      return EmajorScale;
+    case "F":
+      return FmajorScale;
+    case "F#":
+      return FsharpMajorScale;
+    case "G":
+      return GmajorScale;
+    case "G#":
+      return GsharpMajorScale;
     case "Am":
       return AminorScale;
     case "Gm":
