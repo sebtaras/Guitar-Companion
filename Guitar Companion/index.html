@@ -51,8 +51,9 @@
           onchange="displayScaleListener(this.value)"
         >
           <option selected="selected" disabled>Select a scale</option>
+          <option value="0">No scale | Show all chords</option>
           <option value="C">C major scale</option>
-          <!-- <option value="Am">A minor scale</option> -->
+          <option value="Am">A minor scale</option>
           <option value="Gm">G minor scale</option>
           <option value="Amp">A minor pentatonic scale</option>
         </select>
@@ -64,8 +65,10 @@
           disabled="true"
         >
           >
-          <option selected="selected" disabled>Select chords</option>
-          <option value="0">Show all chords</option>
+          <option selected="selected" value="disabled" disabled>
+            Select chords
+          </option>
+          <option value="0">Show all chords in scale</option>
           <option value="1-5-6-4">I–V–vi–IV | 1-5-6-4 progression</option>
           <option value="2-5-1">ii-V-I | 2-5-1 progression</option>
         </select>
