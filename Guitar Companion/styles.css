@@ -7,11 +7,10 @@
   --fret-hover: #77be9e;
   --fret-scale: #2b4377;
   --fret-root: #299ab6;
+  --fret-root-hover: #46b3ce;
   --fret-mark: #b0eed9;
   --fret-chord: #922420;
   --chord-selected-hover: #b4312c;
-  --selected: #fffb01;
-  --selected-hover: #fffd6d;
   /* --fret-primary: #fff568;
   --fret-secondary: #fffb2a;
   --fret-scale: #000000;
@@ -121,14 +120,9 @@ header {
   color: white;
 }
 
-.fret-root-note {
+.fret-root {
   background: var(--fret-root);
   color: white;
-}
-
-.fret-selected {
-  background: var(--selected);
-  color: black;
 }
 
 .fret-chord {
@@ -196,11 +190,12 @@ header {
 }
 
 .note-selected {
-  background: var(--selected);
+  background: var(--fret-root);
+  color: white;
 }
 
 .note-selected:hover {
-  background: var(--selected-hover);
+  background: var(--fret-root-hover);
 }
 
 /*------------- CHORD SELECTOR STYLES ------------- */

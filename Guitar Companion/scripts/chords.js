@@ -156,7 +156,7 @@ const CmajorChord = {
     fifthString: 10,
     sixthString: 8,
   },
-  power: {
+  power1: {
     firstString: -1,
     secondString: -1,
     thirdString: 5,
@@ -164,7 +164,7 @@ const CmajorChord = {
     fifthString: 3,
     sixthString: -1,
   },
-  power: {
+  power2: {
     firstString: -1,
     secondString: -1,
     thirdString: -1,
