@@ -102,13 +102,13 @@ header {
   background: var(--fret-primary);
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .fret-string {
   background: var(--fret-secondary);
   color: white;
-  font-size: 2.2rem;
+  font-size: 2rem;
 }
 
 .fret-mark {
