@@ -344,6 +344,10 @@ function getChord(value) {
       return GminorChord;
     case "G#m":
       return GsharpMinorChord;
+    case "Adim7b5":
+      return Adim7flat5;
+    case "Bdim7b5":
+      return Bdim7flat5;
   }
 }
 

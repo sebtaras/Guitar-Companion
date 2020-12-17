@@ -1053,3 +1053,26 @@ const GsharpMinorChord = {
     sixthString: -1,
   },
 };
+
+const Adim7flat5 = {
+  none: {},
+  movable: {
+    firstString: -1,
+    secondString: 1,
+    thirdString: 0,
+    fourthString: 1,
+    fifthString: 0,
+    sixthString: -1,
+  },
+};
+const Bdim7flat5 = {
+  none: {},
+  movable: {
+    firstString: -1,
+    secondString: 3,
+    thirdString: 2,
+    fourthString: 3,
+    fifthString: 2,
+    sixthString: -1,
+  },
+};
