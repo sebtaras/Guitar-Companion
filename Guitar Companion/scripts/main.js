@@ -173,6 +173,7 @@ function displayScaleListener(scale) {
       clearDisplay(document.querySelector(".note-selector"));
       clearDisplay(document.querySelector(".chord-selector"));
       turnOffScale(document.querySelectorAll(".fret"));
+      displayChordSelectorListener("all-chords");
       break;
     case "C":
       displayScale(CmajorScale);
@@ -225,6 +226,10 @@ function displayChordSelectorListener(progression) {
   const scale = getScale(document.querySelector(".selection-scale").value);
   chords = [];
   switch (progression) {
+    case "all-chords": {
+      chords = ALL_MAJ_MIN_CHORDS;
+      break;
+    }
     case "0": {
       chords = [...scale.chords];
       break;
@@ -242,14 +247,26 @@ function displayChordSelectorListener(progression) {
       chords = [scale.chords[1], scale.chords[4], scale.chords[0]];
     }
   }
-  console.log(chords);
-  displayChordSelector(chords);
+  if (chords.length > 10) {
+    displayAllChordSelector(chords);
+  } else {
+    displayChordSelector(chords);
+  }
 }
 
 function displayChordSelector(chords) {
   const chordSelector = document.querySelector(".chord-selector");
   clearDisplay(chordSelector);
   chordSelector.style.gridTemplateColumns = `repeat(${chords.length}, 1fr)`;
+  chords.forEach(chord => {
+    addChord(chord, chordSelector);
+  });
+}
+
+function displayAllChordSelector(chords) {
+  const chordSelector = document.querySelector(".chord-selector");
+  clearDisplay(chordSelector);
+  chordSelector.style.gridTemplateColumns = `repeat(${chords.length / 2}, 1fr)`;
   chords.forEach(chord => {
     addChord(chord, chordSelector);
   });
@@ -305,6 +322,8 @@ function getChord(value) {
       return GsharpMajorChord;
     case "Am":
       return AminorChord;
+    case "A#m":
+      return AsharpMinorChord;
     case "Bm":
       return BminorChord;
     case "Cm":
@@ -323,6 +342,8 @@ function getChord(value) {
       return FsharpMinorChord;
     case "Gm":
       return GminorChord;
+    case "G#m":
+      return GsharpMinorChord;
   }
 }
 

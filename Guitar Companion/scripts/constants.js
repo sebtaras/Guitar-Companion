@@ -25,8 +25,29 @@ const ALL_NOTES = [
   "Gb",
 ];
 
-module.exports = {
-  STRING_NUM,
-  FRET_NUM,
-  ALL_NOTES,
-};
+const ALL_MAJ_MIN_CHORDS = [
+  "A",
+  "Am",
+  "A#",
+  "A#m",
+  "B",
+  "Bm",
+  "C",
+  "Cm",
+  "C#",
+  "C#m",
+  "D",
+  "Dm",
+  "D#",
+  "D#m",
+  "E",
+  "Em",
+  "F",
+  "Fm",
+  "F#",
+  "F#m",
+  "G",
+  "Gm",
+  "G#",
+  "G#m",
+];

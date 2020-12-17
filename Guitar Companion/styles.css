@@ -4,11 +4,14 @@
   --header-color: #101010;
   --fret-primary: #51c58f;
   --fret-secondary: #4b866b;
+  --fret-hover: #77be9e;
   --fret-scale: #212e4b;
   --fret-root: #30869b;
   --fret-mark: #b0eed9;
   --fret-chord: #922420;
+  --chord-selected-hover: #b4312c;
   --selected: #fffb01;
+  --selected-hover: #fffd6d;
   /* --fret-primary: #fff568;
   --fret-secondary: #fffb2a;
   --fret-scale: #000000;
@@ -183,8 +186,16 @@ header {
   outline: 1px solid #ffffff;
 }
 
+.note:hover {
+  background: var(--fret-hover);
+}
+
 .note-selected {
   background: var(--selected);
+}
+
+.note-selected:hover {
+  background: var(--selected-hover);
 }
 
 /*------------- CHORD SELECTOR STYLES ------------- */
@@ -208,9 +219,17 @@ header {
   outline: 1px solid #ffffff;
 }
 
+.chord:hover {
+  background: var(--fret-hover);
+}
+
 .chord-selected {
   background: var(--fret-chord);
   color: white;
+}
+
+.chord-selected:hover {
+  background: var(--chord-selected-hover);
 }
 
 /*-------------------------------- TABLET STYLES --------------------------------*/

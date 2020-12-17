@@ -1,6 +1,6 @@
 const AmajorChord = {
   none: {},
-  open: {
+  barreA: {
     firstString: 0,
     secondString: 2,
     thirdString: 2,
@@ -343,7 +343,7 @@ const EmajorChord = {
   power1: {
     firstString: -1,
     secondString: -1,
-    thirdString: 0,
+    thirdString: -1,
     fourthString: 2,
     fifthString: 2,
     sixthString: 0,
@@ -414,7 +414,7 @@ const FsharpMajorChord = {
   },
   barreA: {
     firstString: 9,
-    secondString: 10,
+    secondString: 11,
     thirdString: 11,
     fourthString: 11,
     fifthString: 9,
@@ -500,53 +500,45 @@ const GmajorChord = {
 
 const GsharpMajorChord = {
   none: {},
-  open: {
-    firstString: 2,
-    secondString: 3,
-    thirdString: 2,
-    fourthString: 0,
-    fifthString: -1,
-    sixthString: -1,
+  barreE: {
+    firstString: 4,
+    secondString: 4,
+    thirdString: 5,
+    fourthString: 6,
+    fifthString: 6,
+    sixthString: 4,
   },
   barreA: {
-    firstString: 5,
-    secondString: 7,
-    thirdString: 7,
-    fourthString: 7,
-    fifthString: 5,
+    firstString: 11,
+    secondString: 13,
+    thirdString: 13,
+    fourthString: 13,
+    fifthString: 11,
     sixthString: -1,
-  },
-  barreE: {
-    firstString: 10,
-    secondString: 10,
-    thirdString: 11,
-    fourthString: 12,
-    fifthString: 12,
-    sixthString: 10,
   },
   octave: {
-    firstString: 17,
-    secondString: 19,
-    thirdString: 19,
-    fourthString: 19,
+    firstString: 15,
+    secondString: 15,
+    thirdString: 15,
+    fourthString: 17,
     fifthString: 17,
-    sixthString: -1,
+    sixthString: 15,
   },
   power1: {
     firstString: -1,
     secondString: -1,
-    thirdString: 7,
-    fourthString: 7,
-    fifthString: 5,
-    sixthString: -1,
+    thirdString: -1,
+    fourthString: 6,
+    fifthString: 6,
+    sixthString: 4,
   },
   power2: {
     firstString: -1,
     secondString: -1,
-    thirdString: -1,
-    fourthString: 12,
-    fifthString: 12,
-    sixthString: 10,
+    thirdString: 13,
+    fourthString: 13,
+    fifthString: 11,
+    sixthString: -1,
   },
 };
 
@@ -806,9 +798,177 @@ const DminorChord = {
   },
 };
 
+const DsharpMinorChord = {
+  none: {},
+  barreA: {
+    firstString: 6,
+    secondString: 7,
+    thirdString: 8,
+    fourthString: 8,
+    fifthString: 6,
+    sixthString: -1,
+  },
+  barreE: {
+    firstString: 11,
+    secondString: 11,
+    thirdString: 11,
+    fourthString: 13,
+    fifthString: 13,
+    sixthString: 11,
+  },
+  power1: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: 8,
+    fourthString: 8,
+    fifthString: 6,
+    sixthString: -1,
+  },
+  power2: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: -1,
+    fourthString: 13,
+    fifthString: 13,
+    sixthString: 11,
+  },
+};
+
+const EminorChord = {
+  none: {},
+  open: {
+    firstString: 0,
+    secondString: 0,
+    thirdString: 0,
+    fourthString: 2,
+    fifthString: 2,
+    sixthString: 0,
+  },
+  barreA: {
+    firstString: 7,
+    secondString: 8,
+    thirdString: 9,
+    fourthString: 9,
+    fifthString: 7,
+    sixthString: -1,
+  },
+  barreE: {
+    firstString: 12,
+    secondString: 12,
+    thirdString: 12,
+    fourthString: 14,
+    fifthString: 14,
+    sixthString: 12,
+  },
+  power1: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: -1,
+    fourthString: 2,
+    fifthString: 2,
+    sixthString: 0,
+  },
+  power2: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: 9,
+    fourthString: 9,
+    fifthString: 7,
+    sixthString: -1,
+  },
+};
+
+const FminorChord = {
+  none: {},
+  barreE: {
+    firstString: 1,
+    secondString: 1,
+    thirdString: 1,
+    fourthString: 3,
+    fifthString: 3,
+    sixthString: 1,
+  },
+  barreA: {
+    firstString: 8,
+    secondString: 9,
+    thirdString: 10,
+    fourthString: 10,
+    fifthString: 8,
+    sixthString: -1,
+  },
+  octave: {
+    firstString: 13,
+    secondString: 13,
+    thirdString: 13,
+    fourthString: 15,
+    fifthString: 15,
+    sixthString: 13,
+  },
+  power1: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: -1,
+    fourthString: 3,
+    fifthString: 3,
+    sixthString: 1,
+  },
+  power2: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: 10,
+    fourthString: 10,
+    fifthString: 8,
+    sixthString: -1,
+  },
+};
+
+const FsharpMinorChord = {
+  none: {},
+  barreE: {
+    firstString: 2,
+    secondString: 2,
+    thirdString: 2,
+    fourthString: 4,
+    fifthString: 4,
+    sixthString: 2,
+  },
+  barreA: {
+    firstString: 9,
+    secondString: 10,
+    thirdString: 11,
+    fourthString: 11,
+    fifthString: 9,
+    sixthString: -1,
+  },
+  octave: {
+    firstString: 14,
+    secondString: 14,
+    thirdString: 14,
+    fourthString: 16,
+    fifthString: 16,
+    sixthString: 14,
+  },
+  power1: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: -1,
+    fourthString: 4,
+    fifthString: 4,
+    sixthString: 2,
+  },
+  power2: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: 11,
+    fourthString: 11,
+    fifthString: 9,
+    sixthString: -1,
+  },
+};
+
 const GminorChord = {
   none: {},
-  barre: {
+  barreE: {
     firstString: 3,
     secondString: 3,
     thirdString: 3,
@@ -816,7 +976,7 @@ const GminorChord = {
     fifthString: 5,
     sixthString: 3,
   },
-  octave: {
+  barreA: {
     firstString: 10,
     secondString: 11,
     thirdString: 12,
@@ -824,12 +984,72 @@ const GminorChord = {
     fifthString: 10,
     sixthString: -1,
   },
-  power: {
+  octave: {
+    firstString: 14,
+    secondString: 14,
+    thirdString: 14,
+    fourthString: 16,
+    fifthString: 16,
+    sixthString: 14,
+  },
+  power1: {
     firstString: -1,
     secondString: -1,
     thirdString: -1,
     fourthString: 5,
     fifthString: 5,
     sixthString: 3,
+  },
+  power: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: 12,
+    fourthString: 12,
+    fifthString: 10,
+    sixthString: -1,
+  },
+};
+
+const GsharpMinorChord = {
+  none: {},
+  barreE: {
+    firstString: 4,
+    secondString: 4,
+    thirdString: 4,
+    fourthString: 6,
+    fifthString: 6,
+    sixthString: 4,
+  },
+  barreA: {
+    firstString: 11,
+    secondString: 12,
+    thirdString: 13,
+    fourthString: 13,
+    fifthString: 11,
+    sixthString: -1,
+  },
+  octave: {
+    firstString: 15,
+    secondString: 15,
+    thirdString: 15,
+    fourthString: 17,
+    fifthString: 17,
+    sixthString: 15,
+  },
+  power1: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: -1,
+    fourthString: 6,
+    fifthString: 6,
+    sixthString: 4,
+  },
+  power2: {
+    firstString: -1,
+    secondString: -1,
+    thirdString: 13,
+    fourthString: 13,
+    fifthString: 11,
+    sixthString: -1,
   },
 };
