@@ -51,9 +51,9 @@ function clearDisplay(el) {
   el.innerHTML = "";
 }
 
-function turnOffScale(frets) {
-  frets.forEach((fret) => {
-    fret.classList.remove("fret-scale", "fret-root");
+function turnOffNoteHighlighting(frets) {
+  frets.forEach(fret => {
+    fret.classList.remove("fret-scale", "fret-root", "fret-chord");
   });
 }
 
@@ -62,11 +62,11 @@ function toggleHighlightNote(note) {
   if (note.dataset.toggle == "off") {
     note.classList.add("note-selected");
     note.dataset.toggle = "on";
-    frets.forEach((fret) => {
+    frets.forEach(fret => {
       if (fret.innerHTML == note.innerHTML) fret.classList.add("fret-root");
     });
   } else {
-    frets.forEach((fret) => {
+    frets.forEach(fret => {
       note.classList.remove("note-selected");
       if (fret.innerHTML == note.innerHTML) fret.classList.remove("fret-root");
     });
@@ -76,12 +76,12 @@ function toggleHighlightNote(note) {
 
 function toggleHighlightChordType(chord) {
   const fretboard = document.querySelectorAll(".fret");
-  fretboard.forEach((fret) => {
+  fretboard.forEach(fret => {
     fret.classList.remove("fret-chord", "fret-chord-open");
   });
 
   const chords = document.querySelectorAll(".chord");
-  chords.forEach((c) => {
+  chords.forEach(c => {
     if (chord.innerHTML != c.innerHTML) {
       c.classList.remove("chord-selected");
       c.dataset.toggle = "none";
@@ -155,7 +155,7 @@ function displayTuning(tuning, boolScale, mode = "note") {
   displayFretNumbers();
   for (let key in tuning.strings) {
     const nodes = tuning.strings[key];
-    nodes.forEach((node) => {
+    nodes.forEach(node => {
       if (mode == "note" || node.FretNumber == 0)
         addFret(node.Note, fretboard, node.FretNumber == 0);
       else addFret(node.FretNumber, fretboard);
@@ -172,10 +172,10 @@ function displayScale(scale) {
   displayTuningListener(tuning, false);
   const frets = document.querySelectorAll(".fret");
 
-  frets.forEach((fret) => {
+  frets.forEach(fret => {
     const value = fret.innerHTML;
     let inScale = false;
-    scale.notes.forEach((note) => {
+    scale.notes.forEach(note => {
       if (note == value) inScale = true;
     });
 
@@ -185,7 +185,7 @@ function displayScale(scale) {
   const noteSelector = document.querySelector(".note-selector");
   clearDisplay(noteSelector);
   noteSelector.style.gridTemplateColumns = `repeat(${scale.notes.length}, 1fr)`;
-  scale.notes.forEach((note) => {
+  scale.notes.forEach(note => {
     addNote(note, noteSelector, scale.root);
   });
 
@@ -236,7 +236,7 @@ function displayChordSelector(chords) {
   const chordSelector = document.querySelector(".chord-selector");
   clearDisplay(chordSelector);
   chordSelector.style.gridTemplateColumns = `repeat(${chords.length}, 1fr)`;
-  chords.forEach((chord) => {
+  chords.forEach(chord => {
     addChord(chord, chordSelector);
   });
 }
@@ -245,7 +245,7 @@ function displayAllChordsSelector(chords) {
   const chordSelector = document.querySelector(".chord-selector");
   clearDisplay(chordSelector);
   chordSelector.style.gridTemplateColumns = `repeat(${chords.length / 2}, 17%)`;
-  chords.forEach((chord) => {
+  chords.forEach(chord => {
     addChord(chord, chordSelector);
   });
 }
@@ -256,7 +256,7 @@ function displayScaleListener(scale) {
     disableSelectProgression();
     clearDisplay(document.querySelector(".note-selector"));
     clearDisplay(document.querySelector(".chord-selector"));
-    turnOffScale(document.querySelectorAll(".fret"));
+    turnOffNoteHighlighting(document.querySelectorAll(".fret"));
     displayChordSelectorListener("all-chords");
   } else {
     displayScale(getScale(scale));

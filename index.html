@@ -19,10 +19,8 @@
   <body>
     <header>
       <div class="inner-header">
-        <div class="logo" onclick="refresh()">
-          GUITAR <span>COMPANION</span>
-        </div>
-        <div class="menu-options">
+        <div class="logo" onclick="refresh()">GUITAR <span>COMPANION</span></div>
+        <!-- <div class="menu-options">
           <ul>
             <li><a href="">Tuning</a></li>
             <li><a href="">Scale</a></li>
@@ -35,27 +33,19 @@
             <li><a href="">My other projects</a></li>
             <li><a href="">Contact</a></li>
           </ul>
-        </nav>
+        </nav> -->
       </div>
     </header>
     <main>
       <section class="mobile-selects">
-        <select
-          class="selection selection-tuning"
-          onchange="displayTuningListener(this.value)"
-        >
+        <select class="selection selection-tuning" onchange="displayTuningListener(this.value)">
           <option disabled>Select a tuning</option>
           <option selected="selected" value="E">E standard tuning</option>
           <option value="Eb">Eb standard (half-step) tuning</option>
         </select>
-        <select
-          class="selection selection-scale"
-          onchange="displayScaleListener(this.value)"
-        >
+        <select class="selection selection-scale" onchange="displayScaleListener(this.value)">
           <option disabled>Select a scale</option>
-          <option value="0" selected="selected">
-            No scale | Show all chords
-          </option>
+          <option value="0" selected="selected">No scale | Show all chords</option>
           <option value="A">A major scale</option>
           <option value="A#">A# major scale</option>
           <option value="B">B major scale</option>
@@ -80,9 +70,7 @@
           disabled="true"
         >
           >
-          <option selected="selected" value="disabled" disabled>
-            Select chords
-          </option>
+          <option selected="selected" value="disabled" disabled>Select chords</option>
           <option value="0">Show all chords in scale</option>
           <option value="1-5-6-4">I–V–vi–IV | 1-5-6-4 progression</option>
           <option value="2-5-1">ii-V-I | 2-5-1 progression</option>

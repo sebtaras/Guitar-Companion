@@ -1,2 +1,0 @@
-displayChordSelector -> treba skuzit nacin da se 
-    resize kurac unutar javascripta
